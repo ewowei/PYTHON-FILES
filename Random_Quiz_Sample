@@ -1,0 +1,59 @@
+# QUIZ GAME : SELECT RANDOM QUESTION OUT OF A QUESTIONS LIST.
+
+
+dict_question = {'The biggest animal in the world: \n (a) Lion \n (b) Elephant \n (c) Tiger \n (d) giraffe': 'b',
+'The Last World Cup was host on: \n (a) 2022 \n (b) 2017 \n (c) 2015 \n (d) 2016': 'd',
+'Greatest man ever lived:\n (a) Jesus \n (b) Holy Spirit \n (c) Mighty \n (d) Warrior': 'a',
+'The last book written in the Bible: \n (a) John \n (b) Matthew \n (c) Revelation \n (d) Genesis': 'c',
+'What is the color of Banana: \n (a) Yellow \n (b) Brown \n (c) Red \n (d) Blue': 'a',
+'Complete this statement..God loved the world so much that He: \n (a) blessed us \n (b) gave us Jesus \n'
+' (c) Anointed us'
+' \n (d) Forgives us': 'b'}
+
+
+def random_quiz():
+    list_dict_question = list(dict_question)
+
+    key_letter = list(dict_question.values())
+    print("*" * 33)
+    user_name = input("Please enter your names to begin: ")
+    print("Welcome,"+ user_name +',' "You have",str(len(list_dict_question)),"Questions in total.")
+
+    response = input("Are you ready? (y/n): ")
+    print(" ")
+    score = 0
+    if response == "y":
+        while len(list_dict_question) > 0:
+
+            computer_choice = random.choice(list_dict_question)
+            key_value = dict_question[computer_choice]
+            print(computer_choice)
+
+            user_input = input("Your answer: ")
+
+            while user_input not in key_letter:
+                print("Incorrect letter, please enter: a, b, c, or d:")
+
+            if key_value == user_input:
+                score += 1
+                print("Correct! your score:" + str(score) +" Point(s)" )
+                print("*" * 32)
+                list_dict_question.remove(computer_choice)
+            else:
+                list_dict_question.remove(computer_choice)
+                print("Incorrect! your score:" + str(score) +" Point(s)")
+    else:
+        print("Restart when you ready, remember you are smart!")
+
+    percentage = int((score/len(dict_question)) * 100)
+    print("YOUR SCORE: " + str(score) + '/' + str(len(dict_question)), '(' +str(round(percentage, 3))+')%' )
+    print(" ")
+
+    play_again = input("Restart Quiz (y/n): ")
+
+    if play_again == "y":
+        random_quiz()
+    else:
+        print("SEE YOU SOON!")
+
+random_quiz()
