@@ -1,0 +1,422 @@
+""""
+Python is an interpreted Language. It has a software called Python Interpreter, which runs or execute codes
+Python is an object-oriented language and classes form the basis for all data types.
+
+In general, the syntax for instantiating an object is to invoke the constructor of a class
+Example: name = input(); name is object involving input(), Constructor of the class "INPUT"
+The process of creating a new instance of a class is known as instantiation. for Example We have a class named Widget.
+The instance of the class will be w = Widget(). Widget() is also refers to as a Constructor of the class Widget
+
+If the constructor does require parameters, we might
+use a syntax such as Widget(a, b, c) to construct a new instance.
+
+From a programmer’s perspective, yet another way to indirectly create a new
+instance of a class is to call a function that creates and returns such an instance
+
+# CALLING FUNCTION - LIST CLASS IN PYTHON
+For example, Python’s list class has a method named sort that can be
+invoked with a syntax such as data.sort( ).
+
+data = [3,4,52,48,9] # DATA IS AN INSTANCE/OBJECT OF LIST CLASS
+data.sort()  # SORT() IS A METHOD IN PYTHON'S BUILT-IN LIST CLASS FOR REARRANGING
+
+### CALLING METHODS ON STRING OBJECT
+Python supports traditional functions (see Section 1.5) that are invoked with a syntax such as sorted(data),
+in which case data is a parameter sent to the function.
+Python’s classes may also define one or more methods (also known as member
+functions), which are invoked on a specific instance of a class using the dot (“.”)
+operator
+
+For example, if response identifies a string instance (we will discuss strings later in this
+section), the syntax response.lower( ).startswith( y ) first evaluates the method
+call, response.lower( ), which itself returns a new string instance, and then the
+startswith( y ) method is called on that intermediate string.
+
+The major advantage of using a set, as opposed to a list, is that it has a highly
+optimized method for checking whether a specific element is contained in the set.
+This is based on a data structure known as a hash table (which will be the primary
+topic of Chapter 10).
+
+However, there are two important restrictions due to the
+algorithmic underpinnings. The first is that the set does not maintain the elements
+in any particular order. The second is that only instances of immutable types can be
+added to a Python set.
+
+IMPORTANT NOTES:
+When using a method of a class, it is important to understand its behavior.
+Some methods return information about the state of an object, but do not change
+that state. These are known as accessors. Other methods, such as the sort method
+of the list class, do change the state of an object. These methods are known as
+mutators or update methods.
+
+Python’s Built-In Classes
+
+We take particular note of which classes are mutable and which are immutable. A class
+is immutable if each object of that class has a fixed value upon instantiation that
+cannot subsequently be changed. For example, the float class is immutable. Once
+an instance has been created, its value cannot be changed (although an identifier
+referencing that object can be reassigned to a different value).
+
+IMPORTANT NOTES:
+
+Python uses curly braces { and } as delimiters for a set, for example, as {17}
+or { red , green , blue }. The exception to this rule is that { } does not
+represent an empty set; for historical reasons, it represents an empty dictionary
+(see next paragraph). Instead, the constructor syntax set( ) produces an empty set.
+If an iterable parameter is sent to the constructor, then the set of distinct elements
+is produced. For example, set( hello ) produces { h , e , l , o }.
+
+IMPORTANT NOTES:
+
+The constructor for the dict class accepts an existing mapping as a parameter,
+in which case it creates a new dictionary with identical associations as the existing
+one. Alternatively, the constructor accepts a sequence of key-value pairs as a parameter, as in dict(pairs)
+with pairs = [('ga' , 'Irish', 'Rest'), ('de' , 'German')].
+
+NOTE: CONDITIONAL STATEMENT
+The execution of a while loop begins with a test of the Boolean condition. If that condition evaluates to True,
+the body of the loop is performed. After each execution of
+the body, the loop condition is retested, and if it evaluates to True, another iteration
+of the body is performed. When the conditional test evaluates to False (assuming
+it ever does), the loop is exited and the flow of control continues just beyond the
+body of the loop.
+
+Break and Continue Statements
+
+Python supports a break statement that immediately terminate a while or for loop
+when executed within its body. More formally, if applied within nested control
+structures, it causes the termination of the most immediately enclosing loop. As
+a typical example, here is code that determines whether a target value occurs in a
+data set:
+found = False
+for item in data:
+if item == target:
+found = True
+break
+
+1.5 FUNCTIONS  - DATA STRUCTURE
+# TO CHECK IF AN OBJECT TYPE:
+
+def sqrt(x):
+if not isinstance(x, (int, float)):
+raise TypeError( x must be numeric )
+elif x < 0:
+raise ValueError( x cannot be negative )
+# do the real work here...
+
+TO CHECK IF AN OBJECT IS AN ITERABLE TYPE:
+
+from collections.abc import Iterable
+
+def chek(values):
+    if not isinstance(values, Iterable):
+        raise TypeError('Parameter must be an iterable type')
+    total = 0
+    for v in values:
+        if not isinstance(v, (int, float)):
+            raise ValueError('Please enter a numeric value: ')
+        total += v
+    return total
+
+
+life = [3,4,5,6]
+
+print(chek(life))
+
+"""
+# Example
+
+# def func(data, factor):
+#     for i in range(len(data)):
+#         data[i] *= factor
+#     print(data)
+# dt = [3,4,2,3,5,6,7,3,4,5,6,3,4,3]
+
+"""
+SECTION 1.10 - FIRST CLASS OBJECT
+first-class objects are instances of a type that can be assigned to an identifier, passed as a parameter, or returned by
+a function.
+In Python, functions and classes are also
+treated as first-class objects. For example, we could write the following:
+scream = print # assign name ’scream’ to the function denoted as ’print’
+scream( Hello ) # call that function
+
+Break and Continue Statements
+Python supports a break statement that immediately terminate a while or for loop
+when executed within its body. More formally, if applied within nested control
+structures, it causes the termination of the most immediately enclosing loop. As
+a typical example, here is code that determines whether a target value occurs in a
+data set:
+found = False
+for item in data:
+if item == target:
+found = True
+break
+
+CHAPTER 1 ENDS HERE: 
+************************************************************************************************************************
+
+
+"""
+# EXERCISE 1
+#
+# R-1.1 Write a short Python function, is multiple(n, m), that takes two integer
+# values and returns True if n is a multiple of m, that is, n = mi for some
+# integer i, and False otherwise
+
+# def multiple(n,m):
+#     if n % m ==0:
+#         return True
+#     else:
+#         return False
+# print(multiple(2,1))
+
+# R-1.2 Write a short Python function, is even(k), that takes an integer value and
+# returns True if k is even, and False otherwise. However, your function
+# cannot use the multiplication, modulo, or division operators
+
+"""
+def is_even(k):
+    if (k&1 == 0):
+        return True
+    else:
+        return False
+print(is_even(2))
+print(is_even(3))
+print(is_even(4))
+print(is_even(5))
+"""
+
+# R-1.3 Write a short Python function, minmax(data), that takes a sequence of
+# # one or more numbers, and returns the smallest and largest numbers, in the
+# # form of a tuple of length two. Do not use the built-in functions min or
+# # max in implementing your solution.
+# def minmax(data):
+#     min = data[0]
+#     max = data[0]
+#     for d in data:
+#         if d > max:
+#             max = d
+#         if d < min:
+#             min = d
+#     return (min, max)
+# ok = [3, 16, 4, 1, 2, 3, 4, 5, 199]
+# print(minmax(ok))
+
+# R-1.4 Write a short Python function that takes a positive integer n and returns
+# the sum of the squares of all the positive integers smaller than n.
+
+# def postiveinteger(n:int, data: list):
+#     sum = 0
+#     for v in data:
+#         if v < n:
+#             sum = sum + v*v
+#     return sum
+# dat = [9,3,4,5,6,1,12,34]
+# user = int(input("Enter a positive integer: "))
+# print(postiveinteger(user, dat))
+
+# R-1.5 Give a single command that computes the sum from Exercise
+# R-1.4, relying on Python’s comprehension syntax and the built-in sum function.
+
+# SOLUTION
+# data = [9,3,4,5,6,1,12,34]
+# user = int(input("Enter a positive integer: "))
+# sums = sum([v*v for v in data if v < user])
+# print(sums)
+
+
+#
+# def fib():
+#     count = 5
+#     a, b = 0, 1
+#     while count >= 0:
+#         yield a
+#         a, b = b, a+b
+#         count -= 1
+# a = fib()
+# for i in a:
+#     print(i)
+
+
+# def target(data, target):
+#     for item in data:
+#         if item == target:
+#             print('hello')
+#             return True
+#     return False
+
+# dat = [3, 4, 6]
+# tar = 5
+
+# print(target(dat, tar))
+
+# If the conditional within the loop body is ever satisfied, the return True statement is
+# executed and the function immediately ends, with True designating that the target
+# value was found. Conversely, if the for loop reaches its conclusion without ever
+# finding the match, the final return False statement will be executed.
+
+
+"""
+The algorithm design patterns we discuss include the following:
+• Recursion (Chapter 4)
+• Amortization (Sections 5.3 and 11.4)
+• Divide-and-conquer (Section 12.2.1)
+• Prune-and-search, also known as decrease-and-conquer (Section 12.7.1)
+• Brute force (Section 13.2.1)
+• Dynamic programming (Section 13.3).
+• The greedy method (Sections 13.4.2, 14.6.2, and 14.7)
+
+Likewise, the software engineering design patterns we discuss include:
+• Iterator (Sections 1.8 and 2.3.4)
+• Adapter (Section 6.1.2)
+• Position (Sections 7.4 and 8.1.2)
+• Composition (Sections 7.6.1, 9.2.1, and 10.1.4)
+• Template method (Sections 2.4.3, 8.4.6, 10.1.3, 10.5.2, and 11.2.1)
+• Locator (Section 9.5.1)
+• Factory method (Section 11.2.1)
+
+RULES FOR DESIGN PROCESS:
+
+A common tool for developing an initial high-level design for a project is the
+use of CRC cards. Class-Responsibility-Collaborator (CRC) cards are simple index cards that subdivide the work required 
+of a program. The main idea behind this
+tool is to have each card represent a component, which will ultimately become a
+class in the program. We write the name of each component on the top of an index
+card. On the left-hand side of the card, we begin writing the responsibilities for
+this component. On the right-hand side, we list the collaborators for this component, that is, the other components 
+that this component will have to interact with to
+perform its duties.
+The design process iterates through an action/actor cycle, where we first identify an action (that is, a responsibility)
+, and we then determine an actor (that is, a
+component) that is best suited to perform that action. The design is complete when
+we have assigned all actions to actors. In using index cards for this process (rather
+than larger pieces of paper), we are relying on the fact that each component should
+have a small set of responsibilities and collaborators. Enforcing this rule helps keep
+the individual classes manageable.
+
+
+ LINKED LIST - DATA STRUCTURE 
+ What is LinkedList? 
+ A linked List is a data structure used for storing collections of data. A linked list has the following properties.
+ 
+• Successive elements a re connected by pointers
+• The last element points to NULL
+• Can grow or shrink in size during execution of a program
+• Can be made just as long as required (until systems memory exhausts)
+• Docs not waste memory space (but takes some extra memory for pointers) 
+"""
+# Create a NODE
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.ref = None
+
+# Create the Linked_list
+class Linked_list:
+    def __init__(self):
+        self.head = None
+
+    def print_data(self):
+        n = self.head
+        while n!= None:
+            print(n.data, end='-->')
+            n = n.ref
+
+# Adding Node at the beginning of LinkedList
+    def Add_begin(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+        else:
+            new_node.ref = self.head
+            self.head = new_node
+
+# Adding Node at the END of LinkedList
+    def Add__at_end(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+        else:
+            n = self.head
+            while n.ref!= None:
+                n = n.ref
+            n.ref = new_node
+
+# Adding Node before a given data(Node) of LinkedList
+    def Before_given(self, data, x):
+        n = self.head
+        while n.ref!= None:
+            if n.ref.data == x:
+                break
+            n = n.ref
+        if self.head == None:
+            print("Empty List")
+            return
+        else:
+            new_node = Node(data)
+            new_node.ref = n.ref
+            n.ref = new_node
+
+# Adding Node After a given data(Node) of LinkedList
+    def After_given(self, data, x):
+        n = self.head
+        if self.head ==None:
+            print('Empty List')
+            return
+        else:
+            new_node =  Node(data)
+            while n.ref!=None:
+                if n.data == x:
+                    break
+                n = n.ref
+            new_node.ref = n.ref
+            n.ref = new_node
+
+# Delete the first ELEMENT of the Linkedlist
+
+    def delete_start(self):
+        if self.head == None:
+            print("List is empty, nothing to delete")
+            return
+        else:
+            self.head = self.head.ref
+
+# Delete the LAST ELEMENT of the Linkedlist
+    def delete_End(self):
+        n = self.head
+        while n.ref!=None:
+            if n.ref.ref == None:
+                break
+            n = n.ref
+        n.ref = None
+
+    def delete_given(self, data):
+        n = self.head
+        if n == None:
+            print('List is empty')
+            return
+        if self.head.data == data:
+            self.head = self.head.ref
+        while n.ref.ref!=None:
+            if n.ref.data == data:
+                break
+            n = n.ref
+        if n.ref == None:
+            print('Node not present')
+        else:
+            n.ref = n.ref.ref
+
+
+link = Linked_list()
+link.Add_begin(10)
+link.Add_begin(20)
+link.Add_begin(80)
+link.delete_given(80)
+
+link.print_data()
+
+
+
+
+
