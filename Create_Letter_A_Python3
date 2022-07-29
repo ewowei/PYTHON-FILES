@@ -1,0 +1,21 @@
+# Write a program that prints a giant letter A like the one below. Allow the user to specify how
+# large the letter should be.
+
+user = eval(input("Enter height of your letter: "))
+mid = (user//2)
+count = 0
+for i in range(user):
+    count += 1
+
+    if i == 0:
+        print(' ' * (user-i) + '*')
+
+    # elif mid == 2 and user == 3:
+    #     print(('*' * (user - (count-1)) + '*') + '*' * ((2*i)-1) + '*')
+    #     break
+
+    elif i == mid:
+        print((' ' * (user - (count-1)) + '*') + '*' * ((2*i)-1) + '*')
+
+    else:
+        print((' ' * (user - i) + '*')  + ' ' * ((2*i)-1) + '*')
