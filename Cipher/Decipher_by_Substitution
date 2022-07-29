@@ -1,0 +1,31 @@
+import random
+import string
+
+PART A:  TO CIPHER A SECRET_MESSAGE BY SUBSTITUTION METHOD: 
+
+alphabet = string.ascii_lowercase
+key_letter = 'wxymnopqzjdefghirstuvklabc'
+secret_message = input("Your message here: ").lower()
+
+# For loop to go through each character in secret_message
+for c in secret_message:
+    if c.isalpha():       # You are checking if c is a letter or not with Python isalpha() built in function.
+        print(key_letter[alphabet.index(c)], end='')   # Find index of c in alphabet with [alphabet.index(c)]
+    else:
+        print(c, end='') # Here, it says print c if it's not a character as it is in the message.
+        
+        
+PART B:     TO DECIPHER A SECRET_MESSAGE BY SUBSTITUTION METHOD: 
+
+        # The code to decipher the message is nearly the same. Just change key[alphabet.index(c)] to
+# alphabet[key.index(c)].
+
+alphabet = string.ascii_lowercase
+key_letter = 'wxymnopqzjdefghirstuvklabc'
+secret_message = input("Your message here: ").lower()
+
+for c in secret_message:
+    if c.isalpha():       # You are checking if c is a letter or not with Python isalpha() built in function.
+        print(alphabet[key_letter.index(c)], end='')   # Find index of c in key_letter with [key_letter.index(c)]
+    else:
+        print(c, end='') # Here, it says print c if it's not a character as it is in the message.
