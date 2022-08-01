@@ -1,0 +1,30 @@
+#  NUMBER GUESS GAME (COMPUTER VS HUMAN PLAYER)
+import random
+def check_function():
+    print('*', 'Welcome to Python Guess Game', '*'*5)
+    print('*** Computer has picked a number.***')
+    guess = 6
+    while guess > 0:
+        computer_pick = random.randint(1, 6)
+        user_guess = int(input("Guess the number: "))
+        if user_guess == computer_pick:
+            print("You won, Computer guessed: ", computer_pick)
+            print("***************")
+            break
+        else:
+            print("Try Again!")
+        guess -= 1
+    if guess == 0:
+        print("SORRY, YOU MISSED ALL THE GUESSES")
+        print("***************")
+
+    play_again = input("Do you want to play again? (y/n): ")
+
+    print("***************")
+
+    if play_again == 'y':
+        check_function()
+    else:
+        print("SEE YOU LATER!")
+
+check_function()
