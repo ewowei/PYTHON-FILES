@@ -1,0 +1,21 @@
+#Python Challenge
+import random
+
+def play():
+    user = input("'r' for rock, 's' for Scissors, 'p' for Paper: ")
+    computer = random.choice(['r', 's', 'p'])
+    print(computer)
+
+    if user == computer:
+        return "It\'s a Tie!!"
+    if it_win(user, computer):
+        return "You Won!"
+    else:
+        return 'YoU LOSE!!'
+
+
+def it_win(player, opponent):
+    if (player == 'r' and opponent == 's') or (player == 'p' and opponent == 'r') or (player == 's' and opponent == 'p'):
+        return True
+
+print(play())
